@@ -15,8 +15,4 @@ def countSwap(arr):
 
 value = [6, 4, 1]
 countSwap(value)
-"""
-Array is sorted in 3 swaps.  
-First Element: 1  
-Last Element: 6 
-"""
+
