@@ -74,10 +74,14 @@ def insertNodeAtPosition(head, value, position):
         return head
 
 
-# inputs = [1, 2, 3, 4, 5, 6]
-inputs = [1, 2, 3]
+def deleteNode(head, position):
+    pass
+
+
+inputs = [1, 2, 3, 4, 5, 6]
+# inputs = [1, 2, 3]
 test_head = create_linked_list(inputs)
-insertNodeAtPosition(test_head, 43, 2)
+# insertNodeAtPosition(test_head, 43, 2)
 # test_head2 = insertNodeAtTail(test_head, 16)
 print_list(test_head)
 
