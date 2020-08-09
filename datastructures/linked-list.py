@@ -75,14 +75,34 @@ def insertNodeAtPosition(head, value, position):
 
 
 def deleteNode(head, position):
+    if position == 0:
+        head = head.next
+        return head
+
+    temp = head
+    count = 0
+    prevNode = None
+    while temp is not None:
+        if count == position:
+            prevNode.next = temp.next
+            break
+        count += 1
+        prevNode = temp
+        temp = temp.next
+    return head
+
+
+def printNodesInReverse():
     pass
 
 
-inputs = [1, 2, 3, 4, 5, 6]
+inputs1 = [1, 2, 3, 4, 5, 6]
+inputs2 = [11, 12, 8, 18, 16, 5, 18]
 # inputs = [1, 2, 3]
-test_head = create_linked_list(inputs)
+test_head = create_linked_list(inputs2)
 # insertNodeAtPosition(test_head, 43, 2)
 # test_head2 = insertNodeAtTail(test_head, 16)
+# deleteNode(test_head, 0)
 print_list(test_head)
 
 # while test_head is not None:
