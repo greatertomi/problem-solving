@@ -9,13 +9,9 @@ class Node:
         self.next = next_node
 
 
-def shouter():
-    print('This is linked list class')
-
-
 def print_list(head):
     if head:
-        print(head.data, end=' ')
+        print(head.data, end=' => ')
         print_list(head.next)
 
 
@@ -169,11 +165,12 @@ def removeDuplicates(head):
         if head.data not in unique:
             unique.add(head.data)
         head = head.next
-    print(unique)
+    newHead = create_linked_list(unique)
+    return newHead
 
 
-inputs = [1, 2, 3, 3, 5, 6, 6, 7]
-inputs2 = [1, 2, 10]
+inputs = [1, 3, 4, 7, 8]
+inputs2 = [5, 6, 7, 8]
 test_head = create_linked_list(inputs)
-removeDuplicates()
+test_head2 = create_linked_list(inputs2)
 
