@@ -15,30 +15,55 @@ def create_linked_list(input_list):
             tail = head
         else:
             tail.next = Node(value)
-            tail.prev = head
             tail = tail.next
+            tail.prev = head
     return head
 
 
 def print_list(head):
     if head:
-        print(head.data, end=' <=> ')
+        print(head.data, end=' <-> ')
         print_list(head.next)
 
 
-def sortedInsert(head):
+def sortedInsert(head, data):
+    node = Node(data, None, None)
+    if head is None:
+        return node
+    elif data < head.data:
+        node.next = head
+        head.prev = node
+        return node
+    else:
+        node = sortedInsert(head.next, data)
+        head.next = node
+        node.prev = head
+        return head
+
+
+def reverse(head):
+    if not head:
+        return head
+    head.next, head.prev = head.prev, head.next
+    if not head.prev:
+        return head
+    return reverse(head.prev)
+
+
+def reverse2(head):
+    curr = None
     while head:
-        if head.next.data is None:
-            print(head.data, 'prev ->', head.prev.data, 'next ->', 'None')
-        elif head.prev.data is None:
-            print(head.data, 'prev ->', 'None', 'next ->', head.next.data)
-        else:
-            print(head.data, 'prev ->', head.prev.data, 'next ->', head.next.data)
-        head = head.next
+        nxt = head.next
+        curr = head
+        head.next = head.prev
+        head.prev = nxt
+        head = nxt
+    return curr
 
 
 inputs = [1, 3, 4, 7, 10]
 test_head = create_linked_list(inputs)
 # print_list(test_head)
 
-sortedInsert(test_head)
+# print_list(sortedInsert(test_head, 5))
+print_list(reverse2(test_head))
