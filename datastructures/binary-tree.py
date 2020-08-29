@@ -58,12 +58,27 @@ class BinarySearchTree:
         transverse(self.root)
         print(*data, end=" ")
 
+    def height(self, root):
+        if root is None:
+            return 0
+        return max(self.height(root.left), self.height(root.right)) + 1
 
-# def height(node):
-#     if node is None:
-#         return 0
-#     else:
-#         return max(height(node.left), height(node.right)) + 1
+
+def topView(root):
+    this_level = [(root, 0)]
+    scores = {}
+    while this_level:
+        for _ in range(len(this_level)):
+            node, score = this_level.pop(0)
+            if not node:
+                continue
+            if score not in scores:
+                scores[score] = node.value
+            this_level.extend(
+                [(node.left, score - 1),
+                 (node.right, score + 1)])
+    for _, value in sorted(list(scores.items())):
+        print(value, end=' ')
 
 
 tree = BinarySearchTree()
@@ -81,5 +96,6 @@ tree.insert(4)
 # tree.insert(9)
 # tree.insert(1)
 # tree.insert(10)
-tree.DFSInOrder()
-# height(tree)
+# tree.DFSInOrder()
+topView(tree.root)
+# print(tree.height(tree.root))
