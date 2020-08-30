@@ -58,10 +58,33 @@ class BinarySearchTree:
         transverse(self.root)
         print(*data, end=" ")
 
+    def DFSPostOrder(self):
+        data = []
+
+        def transverse(node):
+            if node.left:
+                transverse(node.left)
+            if node.right:
+                transverse(node.right)
+            data.append(node.value)
+        transverse(self.root)
+        print(*data, end=" ")
+
     def height(self, root):
         if root is None:
             return 0
         return max(self.height(root.left), self.height(root.right)) + 1
+
+    def BFS(self):
+        queue = [self.root]
+
+        while len(queue) > 0:
+            node = queue.pop(0)
+            print(node.value, end=' ')
+            if node.left:
+                queue.append(node.left)
+            if node.right:
+                queue.append(node.right)
 
 
 def topView(root):
@@ -82,12 +105,19 @@ def topView(root):
 
 
 tree = BinarySearchTree()
-tree.insert(1)
+tree.insert(4)
 tree.insert(2)
-tree.insert(5)
+tree.insert(7)
+tree.insert(1)
 tree.insert(3)
 tree.insert(6)
-tree.insert(4)
+
+# tree.insert(1)
+# tree.insert(2)
+# tree.insert(5)
+# tree.insert(3)
+# tree.insert(6)
+# tree.insert(4)
 
 # tree.insert(10)
 # tree.insert(15)
@@ -96,6 +126,6 @@ tree.insert(4)
 # tree.insert(9)
 # tree.insert(1)
 # tree.insert(10)
-# tree.DFSInOrder()
-topView(tree.root)
+tree.DFSPreOrder()
+
 # print(tree.height(tree.root))
