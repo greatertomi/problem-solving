@@ -104,28 +104,27 @@ def topView(root):
         print(value, end=' ')
 
 
+def lowestCommonAncestor(root, v1, v2):
+    currentNode = None
+    while root is not None:
+        currentNode = root.root
+        if currentNode.value > v1 and currentNode.value > v2:
+            currentNode = currentNode.left
+        elif currentNode.value < v1 and currentNode.value < v2:
+            currentNode = currentNode.right
+        else:
+            break
+    return currentNode
+
+
 tree = BinarySearchTree()
 tree.insert(4)
 tree.insert(2)
-tree.insert(7)
-tree.insert(1)
 tree.insert(3)
+tree.insert(1)
+tree.insert(7)
 tree.insert(6)
 
-# tree.insert(1)
-# tree.insert(2)
-# tree.insert(5)
-# tree.insert(3)
-# tree.insert(6)
-# tree.insert(4)
-
-# tree.insert(10)
-# tree.insert(15)
-# tree.insert(13)
-# tree.insert(5)
-# tree.insert(9)
-# tree.insert(1)
-# tree.insert(10)
-tree.DFSPreOrder()
-
+# tree.DFSPreOrder()
+print(lowestCommonAncestor(tree, 1, 7))
 # print(tree.height(tree.root))
