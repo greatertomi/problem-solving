@@ -28,7 +28,6 @@ def strongPassword(password: str):
         requiredLen += 1
     if ucCheck is False:
         requiredLen += 1
-    print(numCheck, lcCheck, scCheck, ucCheck, lenCheck, requiredLen)
     if lenCheck is False and len(password) + requiredLen < 6:
         needed = 6 - len(password)
         requiredLen += needed - requiredLen
