@@ -13,7 +13,7 @@ def insertionSort(arr):
     # return arr
 
 
-arr1 = [1, 4, 3, 5, 6, 2]
+arr1 = [2, 1, 3, 1, 2]
 arr2 = [3, 4, 7, 5, 6, 2, 1]
 insertionSort(arr1)
 
