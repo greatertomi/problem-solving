@@ -2,7 +2,7 @@
 
 
 def countingSort(arr):
-    indexCount = [0]*100 # (max(arr) + 1)
+    indexCount = [0]*100
     for i in arr:
         indexCount[i] += 1
     return indexCount
