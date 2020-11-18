@@ -17,4 +17,3 @@ string3 = 'abab'
 stringConstruction(string1)
 stringConstruction(string2)
 stringConstruction(string3)
-
