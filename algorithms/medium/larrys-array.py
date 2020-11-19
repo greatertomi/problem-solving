@@ -21,6 +21,6 @@ arr2 = [3, 1, 2]
 arr3 = [1, 3, 4, 2]
 arr4 = [1, 2, 3, 5, 4]
 print(larrysArray(arr1))
-# print(larrysArray(arr2))
-# print(larrysArray(arr3))
-# print(larrysArray(arr4))
+print(larrysArray(arr2))
+print(larrysArray(arr3))
+print(larrysArray(arr4))
