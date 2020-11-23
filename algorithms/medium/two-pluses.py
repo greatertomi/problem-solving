@@ -16,46 +16,74 @@ def getPositionalVal(grid, i, j):
     return max(valueArr), touchedPoints
 
 
+def hasDuplicate(mainArr, incoming):
+    for val in incoming:
+        if val in mainArr:
+            return True
+    return False
+
+
 def twoPluses(grid):
-    goodPluses = []
+    goodPluses = [1]
     touchedPoints = []
     for i in range(1, len(grid)-1):
         for j in range(1, len(grid[i])-1):
             if grid[i][j] == 'G':
-                val = getPositionalVal(grid, i, j);
-                goodPluses.append(val[0])
-                touchedPoints.extend(val[1])
+                val = getPositionalVal(grid, i, j)
+                # print('tP -> ', touchedPoints, 'new -> ', val[1])
+                # or val[0] > max(goodPluses)
+                if val[0] > 1 and (hasDuplicate(touchedPoints, val[1]) is False):
+                    goodPluses.append(val[0])
+                    touchedPoints.extend(val[1])
     goodPluses.sort()
-    print(goodPluses)
-    print(touchedPoints)
-    # return goodPluses[-1]*goodPluses[-2]
+    # print(goodPluses)
+    if len(goodPluses) > 1:
+        return goodPluses[-1]*goodPluses[-2]
+    elif len(goodPluses) == 1:
+        return goodPluses[-1]
+    else:
+        return 0
 
 
 grid1 = [
-    'GGGGGG',
-    'GBBBGB',
-    'GGGGGG',
-    'GGBBGB',
-    'GGGGGG'
+    'BBBBBGGBGG',
+    'GGGGGGGGGG',
+    'GGGGGGGGGG',
+    'BBBBBGGBGG',
+    'BBBBBGGBGG',
+    'GGGGGGGGGG',
+    'BBBBBGGBGG',
+    'GGGGGGGGGG',
+    'BBBBBGGBGG',
+    'GGGGGGGGGG'
 ]
+# 85
 
 grid2 = [
-    'BGBBGB',
-    'GGGGGG',
-    'BGBBGB',
-    'GGGGGG',
-    'BGBBGB',
-    'BGBBGB'
+    'GGGGGGGGGG',
+    'GBBBBBBGGG',
+    'GGGGGGGGGG',
+    'GGGGGGGGGG',
+    'GBBBBBBGGG',
+    'GGGGGGGGGG',
+    'GBBBBBBGGG',
+    'GBBBBBBGGG',
+    'GGGGGGGGGG'
 ]
+# 45
 
 grid3 = [
-    'GGGGGGG',
-    'BGBBBBG',
-    'BGBBBBG',
-    'GGGGGGG',
-    'GGGGGGG',
-    'BGBBBBG',
+    'GGGGGGGG',
+    'GBGBGGBG',
+    'GBGBGGBG',
+    'GGGGGGGG',
+    'GBGBGGBG',
+    'GGGGGGGG',
+    'GBGBGGBG',
+    'GGGGGGGG'
 ]
+# 81
 
 print(twoPluses(grid1))
 # print(getPositionalVal(grid2, 3, 4))
+
