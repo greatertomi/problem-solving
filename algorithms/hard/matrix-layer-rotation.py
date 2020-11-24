@@ -1,16 +1,49 @@
 # Problem Link: https://www.hackerrank.com/challenges/matrix-rotation-algo/problem
 
 
+def processInternals(arr):
+    colLen = len(arr)
+    rowLen = len(arr[0])
+    array = []
+    kept = []
+    internal = []
+    for i in range(colLen):
+        if i == 0:
+            array.extend(arr[i])
+        elif i == colLen - 1:
+            array.extend(arr[i][::-1])
+        else:
+            array.append(arr[i][-1])
+            internal.append(arr[i][1:-1])
+            kept.append(arr[i][0])
+    array = array + kept
+    return array, internal
+
+
 # 00 01 02 03 13 23 33 32 31 30 20 10
 def matrixRotation(matrix):
     colLen = len(matrix)
     rowLen = len(matrix[0])
-    row = 0
-    col = 0
     array = []
-    for i in range(12):
-        array.append((row, col))
-
+    kept = []
+    internal = []
+    for i in range(colLen):
+        row = []
+        for j in range(rowLen):
+            row.append((i, j))
+        if i == 0:
+            array.extend(row)
+        elif i == colLen - 1:
+            row.reverse()
+            array.extend(row)
+        else:
+            array.append(row[-1])
+            internal.append(row[1:-1])
+            kept.append(row[0])
+    kept.reverse()
+    array = array + kept
+    print(array)
+    print(processInternals(internal))
 
 
 matrix1 = [
