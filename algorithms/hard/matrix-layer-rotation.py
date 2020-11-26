@@ -1,4 +1,5 @@
 # Problem Link: https://www.hackerrank.com/challenges/matrix-rotation-algo/problem
+# Unsolved
 
 
 def processInternals(arr):
@@ -41,9 +42,20 @@ def matrixRotation(matrix):
             internal.append(row[1:-1])
             kept.append(row[0])
     kept.reverse()
+
     array = array + kept
-    print(array)
-    print(processInternals(internal))
+    rearrangedArr = array[2:] + array[:2]
+    internal = processInternals(internal)[0]
+    rearrangedInternal = internal[2:] + internal[:2]
+
+    # Rearrange array
+    print('arr', array)
+    print('arr->r', rearrangedArr)
+    # print('int->r', internal)
+    # print('int->r', rearrangedInternal)
+    newMatrix = [[]]*colLen
+    print(newMatrix)
+    print('new ->', newMatrix)
 
 
 matrix1 = [
