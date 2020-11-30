@@ -3,7 +3,6 @@
 
 def processInternals(arr):
     colLen = len(arr)
-    rowLen = len(arr[0])
     array = []
     kept = []
     internal = []
