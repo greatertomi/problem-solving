@@ -5,7 +5,7 @@ def countSmileys(arr):
     if len(arr) == 0:
         return 0
 
-    smileys = [':)', ';)', ':D', ';)', ':-)', ':-D', ':~)', ':~D', ';-)', ';-D', ';~)', ';~D']
+    smileys = [':)', ';)', ':D', ';D', ':-)', ':-D', ':~)', ':~D', ';-)', ';-D', ';~)', ';~D']
     count = 0
     for char in arr:
         if char in smileys:
