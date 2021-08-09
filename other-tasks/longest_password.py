@@ -1,4 +1,5 @@
 # Task Link: https://app.codility.com/programmers/lessons/90-tasks_from_indeed_prime_2015_challenge/longest_password/
+
 def password_validity_checker(password: str):
     count_num = 0
     count_alpha = 0

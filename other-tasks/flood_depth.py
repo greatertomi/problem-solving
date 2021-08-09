@@ -22,4 +22,4 @@ def flood_depth(array):
 
 value = [1, 3, 2, 1, 2, 1, 5, 3, 3, 4, 2]
 value2 = [5, 8]
-print(flood_depth(value))
+
